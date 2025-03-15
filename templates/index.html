@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MetaView - S3 Metadata Viewer</title>
+    {% assets "css_all" %}
+    <link rel="stylesheet" href="{{ ASSET_URL }}">
+    {% endassets %}
+</head>
+<body>
+    <nav class="navbar">
+        <a href="/" class="navbar-brand">MetaView</a>
+        <div class="navbar-nav">
+            <a href="/" class="nav-link active">Home</a>
+            <a href="/dashboard" class="nav-link">Dashboard</a>
+            <a href="/graph" class="nav-link">Graph Visualization</a>
+            <a href="/query" class="nav-link">AI Query Assistant</a>
+            <a href="/insights" class="nav-link">Performance Insights</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- Welcome Section -->
+        <section class="welcome-card">
+            <h1>Welcome to MetaView</h1>
+            <p>Enter your S3 bucket path to fetch metadata and explore our tools.</p>
+            <div class="input-group">
+                <input type="text" id="s3-path" placeholder="Enter S3 bucket path">
+                <button id="fetch-metadata-btn" class="btn btn-primary">Fetch Metadata</button>
+            </div>
+        </section>
+
+        <!-- Metadata Dashboard -->
+        <section class="dashboard-card hidden">
+            <h2>Metadata Overview</h2>
+            <div class="input-group">
+                <input type="text" placeholder="Search...">
+                <button class="btn btn-primary">Filter</button>
+            </div>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Table Schema</th>
+                        <th>File Size</th>
+                        <th>Partitions</th>
+                        <th>Storage Format</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Dynamically populated -->
+                </tbody>
+            </table>
+        </section>
+
+        <!-- AI Query Assistant -->
+        <section class="dashboard-card">
+            <h2>AI Query Assistant</h2>
+            <div class="input-group">
+                <input type="text" placeholder="Type your query here...">
+                <button class="btn btn-primary">Execute</button>
+            </div>
+            <div class="query-tips">
+                <h3>Query Tips & Examples</h3>
+                <ul>
+                    <li>Find tables with more than 100GB of data</li>
+                    <li>Get orders with revenue exceeding $1000</li>
+                    <li>List customers who joined after 2020</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Performance Insights -->
+        <section class="dashboard-card">
+            <h2>Performance Monitoring</h2>
+            <div class="chart-container">
+                <div id="performance-chart"></div>
+                <div id="storage-costs-chart"></div>
+            </div>
+            <div class="recommendations">
+                <ul>
+                    <li>Consider indexing columns X, Y, Z to reduce query execution times by 30%.</li>
+                    <li>Consolidate storage buckets to save 15% on costs.</li>
+                    <li>Use caching for frequently accessed data to improve performance.</li>
+                </ul>
+            </div>
+        </section>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About MetaView</h3>
+                <p>MetaView is a comprehensive tool for visualizing and analyzing metadata from S3 buckets.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p>Email: support@metaview.com</p>
+                <p>Phone: +1 234 567 890</p>
+            </div>
+        </div>
+    </footer>
+
+    {% assets "js_all" %}
+    <script src="{{ ASSET_URL }}"></script>
+    {% endassets %}
+</body>
+</html>
